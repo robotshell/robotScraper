@@ -48,7 +48,7 @@ def banner():
 #CORE FUNCTION
 def getRobots(domain,enable_save):
 
-	print (colors.OKCYAN + "Starting RobotScraper to recollect directories and pages with the syntax disallow from " + colors.WARNING + "robots.txt " + colors.OKCYAN + "in " + colors.FAIL + domain + colors.ENDC)
+	print (colors.OKCYAN + "Starting RobotScraper to recollect directories and pages from " + colors.WARNING + "robots.txt " + colors.OKCYAN + "in " + colors.FAIL + domain + colors.ENDC)
 	print (colors.OKCYAN + "[+] Checking if the" + colors.WARNING + " robots.txt " + colors.OKCYAN + "file exists" + colors.ENDC)
 
 	r = requests.get("https://" + domain + "/robots.txt")

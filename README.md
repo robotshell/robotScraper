@@ -9,18 +9,18 @@ RobotScraper is a simple tool written in Python to check each of the paths found
 ```
 python3 robotScraper.py tesla.com
 
- ____       _           _   ____                                                                                                                                      
-|  _ \ ___ | |__   ___ | |_/ ___|  ___ _ __ __ _ _ __   ___ _ __                                                                                                      
-| |_) / _ \| '_ \ / _ \| __\___ \ / __| '__/ _` | '_ \ / _ \ '__|                                                                                                     
-|  _ < (_) | |_) | (_) | |_ ___) | (__| | | (_| | |_) |  __/ |                                                                                                        
-|_| \_\___/|_.__/ \___/ \__|____/ \___|_|  \__,_| .__/ \___|_|                                                                                                        
-                                                |_|                                                                                                                   
-                                                                                                                                                                      
+ ____       _           _   ____                                 
+|  _ \ ___ | |__   ___ | |_/ ___|  ___ _ __ __ _ _ __   ___ _ __ 
+| |_) / _ \| '_ \ / _ \| __\___ \ / __| '__/ _` | '_ \ / _ \ '__|
+|  _ < (_) | |_) | (_) | |_ ___) | (__| | | (_| | |_) |  __/ |   
+|_| \_\___/|_.__/ \___/ \__|____/ \___|_|  \__,_| .__/ \___|_|   
+                                                |_|   
+
 RobotScraper v.1.0 - Open Source Project
-Author: Robotshell                                                                                                                                                    
-Github: https://github.com/robotshell                                                                                                                                 
-                                                                                                                                                                      
-Starting RobotScraper to recollect directories and pages with the syntax disallow from robots.txt in tesla.com
+Author: Robotshell
+Github: https://github.com/robotshell
+
+Starting RobotScraper to recollect directories and pages from robots.txt in tesla.com
 [+] Checking if the robots.txt file exists
 [✓] File robots.txt exists:
 ...
