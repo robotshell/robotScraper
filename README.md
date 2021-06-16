@@ -1,5 +1,5 @@
-# RobotScraper v1.0          
-RobotScraper is a simple tool written in Python to check each of the paths found in the robots.txt file and what HTTP response code they return
+# RobotScraper       
+RobotScraper is a simple tool written in Python to check each of the paths found in the robots.txt file and what HTTP response code they return.
 
 
 # Disclaimer :warning:
