@@ -75,11 +75,8 @@ def getRobots(domain,enable_save):
 				directory = line.replace('Disallow: ', '')
 
 
-			if directory[0] != '/':
-				if len(directory) > 2:
-					print(colors.FAIL + "[X] Not a directory: " + colors.FAIL + directory + colors.ENDC)
-
-			else:
+			if directory[0] == '/':
+	
 				newDomain = "https://" + domain + directory
 				r2 = requests.get(newDomain)
 				
