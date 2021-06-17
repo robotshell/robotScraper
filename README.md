@@ -3,7 +3,7 @@ RobotScraper is a simple tool written in Python to check each of the paths found
 
 
 # Disclaimer :warning:
-**The author of this document take no responsibility for correctness. This project is merely here to help guide security researchers towards determining whether something is vulnerable to Open Redirect or not, but does not guarantee accuracy.**
+**The author of this document take no responsibility for correctness. This project is merely here to help guide security researchers towards determining whether something is vulnerable or not, but does not guarantee accuracy.**
 
 # Usage
 ```
