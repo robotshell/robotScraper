@@ -45,7 +45,7 @@ Starting RobotScraper to recollect directories and pages from robots.txt in twit
 ```
 
 # PoC
-![Example image](https://raw.githubusercontent.com/robotshell/dorkSraper/main/poc.gif)
+![Example image](https://github.com/robotshell/robotScraper/blob/main/poc.gif)
 
 # About me
 [Twitter](https://twitter.com/robotshelld)
