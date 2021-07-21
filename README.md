@@ -7,7 +7,7 @@ RobotScraper is a simple tool written in Python to check each of the paths found
 
 # Usage
 ```
-python3 robotScraper.py tesla.com
+python3 robotScraper.py tesla.com -s output.txt 
 
  ____       _           _   ____                                 
 |  _ \ ___ | |__   ___ | |_/ ___|  ___ _ __ __ _ _ __   ___ _ __ 
@@ -16,9 +16,7 @@ python3 robotScraper.py tesla.com
 |_| \_\___/|_.__/ \___/ \__|____/ \___|_|  \__,_| .__/ \___|_|   
                                                 |_|   
 
-RobotScraper v.1.0 - Open Source Project
-Author: Robotshell
-Github: https://github.com/robotshell
+RobotScraper v.1.0 - Open Source Project | Author: Robotshell | Twitter: https://twitter.com/robotshelld
 
 Starting RobotScraper to recollect directories and pages from robots.txt in tesla.com
 [+] Checking if the robots.txt file exists
@@ -48,6 +46,10 @@ Starting RobotScraper to recollect directories and pages from robots.txt in tesl
 ...
 
 ```
+
+# PoC
+![Example image](https://raw.githubusercontent.com/robotshell/dorkSraper/main/poc.gif)
+
 # About me
 [Twitter](https://twitter.com/robotshelld)
 

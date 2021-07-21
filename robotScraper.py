@@ -43,10 +43,10 @@ def banner():
 |_| \_\___/|_.__/ \___/ \__|____/ \___|_|  \__,_| .__/ \___|_|   
                                                 |_|   
 """ + colors.ENDC)
-	print(colors.OKGREENL + "RobotScraper v.1.0 - Open Source Project\n" + "Author: Robotshell\n" + "Github: https://github.com/robotshell\n" + colors.ENDC)
+	print(colors.WARNING + "RobotScraper v.1.0 - Open Source Project | " + colors.OKGREEN + "Author: " + colors.WARNING + "Robotshell | " + colors.OKGREEN + "Twitter: " + colors.WARNING + "https://twitter.com/robotshelld\n" + colors.ENDC)
 
 #CORE FUNCTION
-def getRobots(domain,enable_save):
+def getRobots(domain,enable_save, filename):
 
 	print (colors.OKCYAN + "Starting RobotScraper to recollect directories and pages from " + colors.WARNING + "robots.txt " + colors.OKCYAN + "in " + colors.FAIL + domain + colors.ENDC)
 	print (colors.OKCYAN + "[+] Checking if the" + colors.WARNING + " robots.txt " + colors.OKCYAN + "file exists" + colors.ENDC)
@@ -56,13 +56,14 @@ def getRobots(domain,enable_save):
 	if r.status_code == 200:
 		print (colors.OKCYAN + "[✓] File" + colors.WARNING + " robots.txt " + colors.OKCYAN + "exists:" + colors.ENDC)
 		print()
+		
 		soup = BeautifulSoup(r.text, 'html.parser')
 
-		with open("response.txt", "w") as file:
+		with open("robots.txt", "w") as file:
     			file.write(str(soup))
 		print (soup)
 
-		file = open("response.txt", "rt")
+		file = open("robots.txt", "rt")
 
 		for line in file:
 			a = 0
@@ -85,6 +86,11 @@ def getRobots(domain,enable_save):
 				if r2.status_code == 200:
 					
 					print (colors.OKGREEN + "[✓] Obtained a " + colors.WARNING + "200 OK " + colors.OKGREEN +  "success status response code in directory: " + colors.WARNING + directory + colors.ENDC)
+					if enable_save == 1:
+						file = open(filename, "a")
+						file.write(str(directory))
+						file.write("\n")
+						file.close()
 
 				elif r2.status_code == 302:
 					print (colors.OKGREEN + "[✓] Obtained a " + colors.WARNING + "302 Found redirect " + colors.OKGREEN +  "status response code in directory: " + colors.WARNING + directory + colors.ENDC)
@@ -98,24 +104,43 @@ def getRobots(domain,enable_save):
 #MAIN FUNCTION
 def main():
 	banner()
-	enable_save=0 
-	
+	enable_save = 0
+	filename = ""
+
 	if len(sys.argv) == 1:
 		print (colors.FAIL + "ERROR: No domain or parameters found" + colors.ENDC)
-	else:
-		arg=sys.argv[1]
+	elif len(sys.argv) == 2:
+		arg = sys.argv[1]
+		
 		if arg == "-h" or arg == "--help" :
 			print (colors.BOLD + "HELP SECTION:" + colors.ENDC)
-			print ("Usage:" + colors.OKCYAN + "\trobotscraper.py domain.com" + colors.ENDC)
+			print ("Usage:" + colors.OKCYAN + '\trobotscraper.py domain' + colors.ENDC)
+			print ("Example:" + colors.OKCYAN + '\trobotscraper.py example.com -s output.txt' + colors.ENDC)
+			print ("-d,--domain" + colors.OKCYAN + "\tSpecifies the domain" + colors.ENDC)
 			print ("-h,--help" + colors.OKCYAN + "\tThis help" + colors.ENDC)
 			print ("-v,--version" + colors.OKCYAN + "\tShow version" + colors.ENDC)
-			print ("-s,--save" + colors.OKCYAN + "\tEnable save output in .txt file" + colors.ENDC)
+			print ("-s,--save" + colors.OKCYAN + "\tEnable save output and specifies the output file" + colors.ENDC)
 		elif arg == "-v" or arg == "--version":
-			print ("RobotScraper v.1.0")
-		elif arg == "-s" or arg == "--save":
-			enable_save=1
-			getRobots(arg,enable_save) 
+			print (colors.WARNING + "RobotScraper v.1.0" + colors.ENDC)
 		else:
-			getRobots(arg,enable_save)
-	
+			print (colors.FAIL + "ERROR: Incorrect argument or sintaxis" + colors.ENDC)
+	elif len(sys.argv) == 3:
+		if sys.argv[1] == "-d" or sys.argv[1] == "--domain":
+			
+			domain = sys.argv[2]
+			getRobots(domain,enable_save,filename)
+	 
+	elif len(sys.argv) > 2 and len(sys.argv) <= 5:
+
+		if sys.argv[1] == "-d" or sys.argv[1] == "--domain":
+			
+			domain = sys.argv[2]
+			
+			if(len(sys.argv) > 3):
+				if sys.argv[3] == "-s" or sys.argv[3] == "--save":
+					enable_save = 1
+					filename = sys.argv[4]
+
+			getRobots(domain,enable_save,filename)
+				
 main()
