@@ -86,10 +86,10 @@ def getRobots(domain,enable_save, filename):
 				if r2.status_code == 200:
 					
 					print (colors.OKGREEN + "[✓] Obtained a " + colors.WARNING + "200 OK " + colors.OKGREEN +  "success status response code in directory: " + colors.WARNING + directory + colors.ENDC)
+					
 					if enable_save == 1:
 						file = open(filename, "a")
 						file.write(str(directory))
-						file.write("\n")
 						file.close()
 
 				elif r2.status_code == 302:
@@ -124,12 +124,7 @@ def main():
 			print (colors.WARNING + "RobotScraper v.1.0" + colors.ENDC)
 		else:
 			print (colors.FAIL + "ERROR: Incorrect argument or sintaxis" + colors.ENDC)
-	elif len(sys.argv) == 3:
-		if sys.argv[1] == "-d" or sys.argv[1] == "--domain":
-			
-			domain = sys.argv[2]
-			getRobots(domain,enable_save,filename)
-	 
+
 	elif len(sys.argv) > 2 and len(sys.argv) <= 5:
 
 		if sys.argv[1] == "-d" or sys.argv[1] == "--domain":
