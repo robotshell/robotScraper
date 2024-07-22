@@ -1,58 +1,33 @@
-# RobotScraper       
-RobotScraper is a simple tool written in Python to check each of the paths found in the robots.txt file and what HTTP response code they return.
+# RobotScraper
 
+## Description
 
-# Disclaimer :warning:
-**The author of this document take no responsibility for correctness. This project is merely here to help guide security researchers towards determining whether something is vulnerable or not, but does not guarantee accuracy.**
+RobotScraper is an open-source tool designed to scrape and analyze the `robots.txt` file of a specified domain. This Python script helps in identifying directories and pages that are allowed or disallowed by the `robots.txt` file and can save the results if needed. It is useful for web security researchers, SEO analysts, and anyone interested in examining the structure and access rules of a website.
 
-# Usage
-```
-python3 robotScraper.py -d twitter.com -s output.txt 
+This script is distributed under the terms of the GNU General Public License v3.0.
 
- ____       _           _   ____                                 
-|  _ \ ___ | |__   ___ | |_/ ___|  ___ _ __ __ _ _ __   ___ _ __ 
-| |_) / _ \| '_ \ / _ \| __\___ \ / __| '__/ _` | '_ \ / _ \ '__|
-|  _ < (_) | |_) | (_) | |_ ___) | (__| | | (_| | |_) |  __/ |   
-|_| \_\___/|_.__/ \___/ \__|____/ \___|_|  \__,_| .__/ \___|_|   
-                                                |_|   
+## Requirements
 
-RobotScraper v.1.0 - Open Source Project | Author: Robotshell | Twitter: https://twitter.com/robotshelld
+- Python 3.x
+- `requests` package
+- `beautifulsoup4` package
 
-Starting RobotScraper to recollect directories and pages from robots.txt in twitter.com
-[+] Checking if the robots.txt file exists
-[✓] File robots.txt exists:
-...
-...
-...
-[+] Checking https://twitter.com/?_escaped_fragment_
-[✓] Obtained a 200 OK success status response code in directory: /?_escaped_fragment_                           
-                                                                                                                
-[+] Checking https://twitter.com/*?lang=
-[✓] Obtained a 200 OK success status response code in directory: /*?lang=                                       
-                                                                                                                
-[+] Checking https://twitter.com/hashtag/*?src=
-[✓] Obtained a 200 OK success status response code in directory: /hashtag/*?src=                                
-                                                                                                                
-[+] Checking https://twitter.com/search?q=%23
-[✓] Obtained a 200 OK success status response code in directory: /search?q=%23                                  
-                                                                                                                
-[+] Checking https://twitter.com/i/api/
-[✓] Obtained a 403 status response code in directory: /i/api/        
-...
-...
-...
+## Installation
 
-```
+1. Clone the repository:
+    ```sh
+    git clone https://github.com/robotshell/robotScraper
+    cd robotScraper
+    ```
 
-# PoC
-![Example image](https://github.com/robotshell/robotScraper/blob/main/poc.gif)
+2. Install the required Python packages:
+    ```sh
+    pip install requests beautifulsoup4
+    ```
 
-# About me
-[Twitter](https://twitter.com/robotshelld)
+## Usage
 
+To run the RobotScraper, you can use the following command syntax:
 
-# Donation
-* If you've earned a bug bounty using this tool, please consider donating to support it's development. You can help me to develop more useful scripts and tools. Thanks :heart_eyes:
-
-[<img src="https://www.paypalobjects.com/en_US/ES/i/btn/btn_donateCC_LG.gif">](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=F4YABU5AH3NTQ&source=url)
-
+```sh
+python robotScraper.py domain [-s output.txt]
