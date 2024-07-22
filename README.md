@@ -7,8 +7,6 @@
 
 RobotScraper is an open-source tool designed to scrape and analyze the `robots.txt` file of a specified domain. This Python script helps in identifying directories and pages that are allowed or disallowed by the `robots.txt` file and can save the results if needed. It is useful for web security researchers, SEO analysts, and anyone interested in examining the structure and access rules of a website.
 
-This script is distributed under the terms of the GNU General Public License v3.0.
-
 ## Requirements
 
 - Python 3.x
